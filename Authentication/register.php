@@ -86,6 +86,7 @@ if (isset($_POST['submit'])) {
             } else {
                 
                 //email already registered (sign in instead) ?
+                //TODO:change
                 $conn = mysqli_connect('localhost', 'root', '', 'hospital_management_system');
                 $snapshot = $conn->query("SELECT email FROM patients WHERE email = '$email'");
                 
@@ -143,8 +144,10 @@ if (isset($_POST['submit'])) {
 
              //2 => random id
              {
+                 //TODO:change
                 $conn = mysqli_connect('localhost', 'root', '', 'hospital_management_system');
 
+                //TODO:Change
                 do {
                     $patient_id_num = mt_rand(1,9999);
 
@@ -172,7 +175,9 @@ if (isset($_POST['submit'])) {
 
             //connection to db
             {
+                //TODO:change
                 $conn = mysqli_connect("localhost", "root", "", "hospital_management_system");
+                //TODO:change
                 if ($conn) {
                     $statement = $conn ->prepare("INSERT INTO patients (first_name, last_name, email, contact, pswd, patient_id) VALUES (?, ?, ?, ?, ?, ?)");
                    if($statement != false){
@@ -196,7 +201,7 @@ if (isset($_POST['submit'])) {
             ;
 
 
-
+            //TODO:change
             $body = 
             "
             Hi $lastName, <br>
@@ -206,6 +211,7 @@ if (isset($_POST['submit'])) {
             ";
 
             $message = (new Swift_Message("Account Verification", $body, "text/html"))
+            //TODO:change
                 ->setFrom("ta373098@gmail.com")
                 ->setTo($email)
             ;

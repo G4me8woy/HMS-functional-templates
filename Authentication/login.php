@@ -38,12 +38,14 @@ function isArrEmpty($arr){
 
         //connection to db
         if (isArrEmpty($errors)) {
+            //TODO:change
             $conn = mysqli_connect('localhost', 'root', '', 'hospital_management_system');
 
             // $statement = $conn->prepare("SELECT * FROM patients WHERE patient_id = ? AND  pswd = ?");
             // $statement->bind_param('ss', $fields['auth-id'], $fields['password']);
             // $statement->execute();
 
+            //TODO: change
             $sql = "SELECT patient_id, pswd FROM patients WHERE patient_id = '$auth_id' AND  pswd = '$password'";
             $snapshot = $conn->query($sql);
 
